@@ -5632,17 +5632,27 @@ img.u-pull-left {
         padding-bottom: var(--vspace-2_5);
     }
     
+    /* Remove all grid/flex overrides that interfere with Swiper */
     .testimonials .swiper-wrapper {
         display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         gap: 0 !important;
         align-items: stretch !important;
-        flex-wrap: nowrap !important;
+        /* Let Swiper handle the transform */
+        transform: none !important;
+        transition: none !important;
     }
     
+    /* Ensure slides are proper Swiper slides */
     .testimonial-slider__slide {
         flex-shrink: 0 !important;
         width: 100% !important;
         display: block !important;
+        /* Let Swiper handle positioning */
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
     }
     
     .testimonial-card {
@@ -5664,6 +5674,33 @@ img.u-pull-left {
     
     .section-header {
         margin-bottom: var(--vspace-0_75);
+    }
+    
+    /* Ensure pagination is visible and functional */
+    .testimonials .swiper-pagination {
+        display: block !important;
+        position: relative !important;
+        margin-top: var(--vspace-1) !important;
+        bottom: auto !important;
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+    
+    .testimonials .swiper-pagination-bullet {
+        width: 12px !important;
+        height: 12px !important;
+        margin: 0 6px !important;
+        background: rgba(255, 255, 255, 0.5) !important;
+        opacity: 1 !important;
+        display: inline-block !important;
+        cursor: pointer !important;
+        border-radius: 50% !important;
+    }
+    
+    .testimonials .swiper-pagination-bullet-active {
+        background: var(--color-1) !important;
+        opacity: 1 !important;
+        transform: scale(1.2) !important;
     }
 }
 
@@ -6912,32 +6949,15 @@ color : white;
         box-sizing: border-box !important;
     }
     
-    /* Fix swiper container to prevent clipping */
-    .testimonials .swiper-container {
-        overflow: visible !important;
-        position: relative !important;
-        width: 100% !important;
-        padding-bottom: 60px !important;
-    }
-    
-    /* Force flex layout for carousel functionality */
+    /* Let Swiper handle the carousel - remove conflicting overrides */
     .testimonials .swiper-wrapper {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        gap: 0 !important;
-        width: 100% !important;
-        align-items: stretch !important;
-        transition: transform 0.3s ease !important;
-        overflow: visible !important;
+        /* Allow Swiper to control layout */
+        display: block !important;
     }
     
-    /* Force each slide to be full width for carousel */
+    /* Ensure slides work with Swiper */
     .testimonials .swiper-wrapper .testimonial-slider__slide {
         width: 100% !important;
-        flex: 0 0 100% !important;
-        flex-shrink: 0 !important;
-        margin: 0 !important;
         display: block !important;
     }
     
@@ -7031,11 +7051,6 @@ color : white;
         z-index: 11 !important;
     }
     
-    .testimonials .swiper-pagination-bullet:hover {
-        background: rgba(255, 255, 255, 0.8) !important;
-        transform: scale(1.1) !important;
-    }
-    
     .testimonials .swiper-pagination-bullet-active {
         background: var(--color-1) !important;
         transform: scale(1.2) !important;
@@ -7057,50 +7072,9 @@ color : white;
         width: 100% !important;
     }
     
-    .testimonials .testimonial-card {
-        padding: 0.75rem !important;
-        height: 280px !important;
-        min-height: 280px !important;
-    }
-    
     .testimonials .testimonial-content p {
         font-size: calc(var(--text-size) * 0.7) !important;
         -webkit-line-clamp: 3 !important;
         line-clamp: 3 !important;
-    }
-    
-    /* Ensure pagination is fully visible on very small screens */
-    .testimonials .swiper-pagination {
-        display: block !important;
-        position: relative !important;
-        margin-top: var(--vspace-0_75) !important;
-        width: 100% !important;
-        height: 20px !important;
-        text-align: center !important;
-        z-index: 100 !important;
-        overflow: visible !important;
-        clip: auto !important;
-        clip-path: none !important;
-    }
-    
-    .testimonials .swiper-pagination-bullet {
-        width: 10px !important;
-        height: 10px !important;
-        margin: 0 4px !important;
-        background: rgba(255, 255, 255, 0.6) !important;
-        opacity: 1 !important;
-        display: inline-block !important;
-        border-radius: 50% !important;
-        cursor: pointer !important;
-        position: relative !important;
-        z-index: 101 !important;
-        visibility: visible !important;
-    }
-    
-    .testimonials .swiper-pagination-bullet-active {
-        background: var(--color-1) !important;
-        transform: scale(1.3) !important;
-        opacity: 1 !important;
-        z-index: 102 !important;
     }
 }
