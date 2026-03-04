@@ -300,8 +300,12 @@ html, body {
     }
 }
 
-/* Mobile testimonial fixes */
-@media screen and (max-width: 480px) {
+/* Mobile testimonial fixes - Let Swiper handle carousel properly */
+@media screen and (max-width: 600px) {
+    .testimonials {
+        margin-top: var(--vspace-1);
+    }
+
     .testimonial-card {
         padding: 1.5rem 1rem;
     }
@@ -323,6 +327,65 @@ html, body {
     .testimonial-slider__cite span {
         font-size: var(--text-xs);
     }
+}
+
+/* CRITICAL: Ensure Swiper core functionality is preserved on mobile */
+@media screen and (max-width: 600px) {
+    /* Force Swiper wrapper to maintain horizontal flex layout */
+    .testimonials .swiper-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        will-change: transform;
+    }
+    
+    /* Ensure slides don't shrink or stack */
+    .testimonials .swiper-slide {
+        flex-shrink: 0 !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    
+    /* Prevent any layout overrides */
+    .testimonials .swiper-container {
+        overflow: hidden !important;
+    }
+}
+
+/* UNIVERSAL: Ensure Swiper works correctly on ALL devices */
+.testimonials .swiper-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    transition-property: transform !important;
+    box-sizing: content-box !important;
+}
+
+.testimonials .swiper-slide {
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    transition-property: transform !important;
+}
+
+.testimonials .swiper-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    overflow: hidden !important;
+    list-style: none !important;
+    padding: 0 !important;
+    z-index: 1 !important;
+}
+
+/* Prevent any CSS framework from overriding Swiper */
+.testimonials .swiper-wrapper *,
+.testimonials .swiper-slide *,
+.testimonials .swiper-container * {
+    box-sizing: inherit !important;
 }
 
 /* Mobile footer fixes */
