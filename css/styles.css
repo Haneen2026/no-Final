@@ -273,16 +273,24 @@ html, body {
     }
 }
 
-/* Mobile contact cards fixes */
+/* Mobile contact cards fixes - Force 2-column layout */
 @media screen and (max-width: 480px) {
     .contact-cards-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 1rem;
         padding: 0 1rem;
+        width: 100% !important;
+        justify-items: center;
     }
     
     .contact-card {
         padding: 1.5rem 1rem;
         min-height: auto;
+        width: 100% !important;
+        max-width: 160px !important;
+        height: auto !important;
+        min-height: 120px !important;
     }
     
     .contact-card-icon {
@@ -297,6 +305,24 @@ html, body {
     
     .contact-card-link {
         font-size: var(--text-xs);
+    }
+}
+
+/* Additional mobile enforcement for slightly larger screens */
+@media screen and (max-width: 600px) {
+    .contact-cards-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+        padding: 0 1rem;
+        width: 100% !important;
+        justify-items: center;
+    }
+    
+    .contact-card {
+        width: 100% !important;
+        max-width: 180px !important;
+        height: auto !important;
     }
 }
 
