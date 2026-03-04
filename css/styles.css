@@ -5609,13 +5609,6 @@ img.u-pull-left {
     padding-bottom : var(--vspace-2_5);
 }
 
-.testimonials .swiper-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--vspace-1);
-    align-items: stretch;
-}
-
 .testimonial-slider__slide {
     position: relative;
     padding: 0;
