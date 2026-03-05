@@ -259,7 +259,7 @@
 
         const mySwiper = new Swiper('.swiper-container', {
 
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
             pagination: {
                 el: '.swiper-pagination',
@@ -276,13 +276,8 @@
                     slidesPerView: 1,
                     spaceBetween: 0
                 },
-                // when window width is <= 800px
-                800: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-                // when window width is > 800px
-                801: {
+                // when window width is > 600px
+                601: {
                     slidesPerView: 2,
                     spaceBetween: 16
                 },
@@ -291,11 +286,7 @@
                     slidesPerView: 2,
                     spaceBetween: 32
                 }
-            },
-            // Ensure proper initialization on mobile
-            observer: true,
-            observeParents: true,
-            resizeObserver: true
+            }
          });
 
     }; // end ssSwiper
