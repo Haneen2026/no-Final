@@ -621,6 +621,11 @@
 /* Mobile Safari and WebKit Specific Fix */
 @supports (-webkit-touch-callout: none) {
     @media screen and (max-width: 768px) {
+        .basicLightbox__placeholder {
+            max-height: none !important;
+            height: auto !important;
+        }
+        
         .modal-popup__text {
             margin-bottom: 0 !important;
             padding-bottom: 0 !important;
